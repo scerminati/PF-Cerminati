@@ -4,3 +4,13 @@
   display: flex;
   flex-direction: $display;
 }
+
+/*Mixin para gradiente*/
+
+@mixin gradiente($degree) {
+  background: linear-gradient(
+    $degree,
+    rgba(97, 75, 112, 1) 50%,
+    rgba(97, 75, 112, 0) 100%
+  );
+}

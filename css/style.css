@@ -11,19 +11,20 @@
 /*Tamaño fuente de títulos*/
 /*Tamaño fuente de texto*/
 /*Ajuste en porcentaje para pantallas Large, Medium y Small*/
-/*Mixin para display flex y column o row*/ /* Scrollbar para main */
+/*Mixin para display flex y column o row*/
+/*Mixin para gradiente*/
+/* Scrollbar para main */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #391e4c;
+  background: #614b70;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: white;
-  border-radius: 5px;
+  background: linear-gradient(0deg, rgb(97, 75, 112) 0%, rgb(255, 255, 255) 10%, rgb(255, 255, 255) 90%, rgb(97, 75, 112) 100%);
 }
 
 body {
@@ -34,8 +35,8 @@ body {
 
 main {
   overflow-x: hidden;
+  padding: 10px 0 10px 0;
 }
-
 main li {
   font-size: 1.2rem;
 }
@@ -50,11 +51,9 @@ header {
   z-index: 3;
   gap: 10px;
 }
-
 header nav {
   height: 100%;
 }
-
 header nav ul {
   height: 100%;
   text-align: center;
@@ -64,16 +63,13 @@ header nav ul {
   justify-content: space-evenly;
   gap: 20px;
 }
-
 header nav ul li {
   list-style-type: none;
 }
-
 header nav ul li a {
   color: white;
   padding: 0 5px;
 }
-
 header nav ul li a:hover {
   color: #c89e52;
   text-shadow: 0px 0px 2px #c89e52;
@@ -130,7 +126,6 @@ button {
   margin-left: 20px;
   align-self: center;
 }
-
 .logo:hover {
   filter: drop-shadow(0px 0px 5px white);
 }
@@ -159,7 +154,6 @@ label.menu {
 .listamenuesc {
   display: none;
 }
-
 .listamenuesc i {
   font-size: 3.5rem;
 }
@@ -202,11 +196,29 @@ footer p {
   align-items: center;
 }
 
+/*Línea blurred*/
+.blurred {
+  height: 15px;
+  width: 100%;
+  position: fixed;
+  z-index: 4;
+  background: rgb(57, 30, 76);
+}
+
+.blurredtop {
+  top: 18vh;
+  background: linear-gradient(180deg, rgb(97, 75, 112) 50%, rgba(97, 75, 112, 0) 100%);
+}
+
+.blurredbottom {
+  bottom: 5vh;
+  background: linear-gradient(0deg, rgb(97, 75, 112) 50%, rgba(97, 75, 112, 0) 100%);
+}
+
 /*Importe de características de páginas individuales*/
 /*Aplicado a index*/
 .indeximg {
   width: 75%;
-  -o-object-fit: cover;
   object-fit: cover;
   border-radius: 100%;
   max-width: 350px;
@@ -225,9 +237,7 @@ footer p {
 
 .indexplanimg {
   width: 100%;
-  height: 320px;
   border-radius: 50px;
-  object-fit: cover;
 }
 
 .break {
@@ -236,7 +246,6 @@ footer p {
 
 /*Aplicado a Eventos*/
 .imgevento {
-  -o-object-fit: cover;
   object-fit: cover;
   width: 650px;
   height: 300px;
@@ -269,7 +278,6 @@ footer p {
 }
 
 .imgpys {
-  -o-object-fit: cover;
   object-fit: cover;
   width: 700px;
   height: 700px;
@@ -312,7 +320,6 @@ footer p {
   width: 300px;
   height: 300px;
 }
-
 .fotowrap:hover .fotodescr {
   visibility: visible;
   opacity: 1;
@@ -322,7 +329,6 @@ footer p {
   border-radius: 30px;
   width: 300px;
   height: 300px;
-  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -344,7 +350,6 @@ footer p {
   height: auto;
   width: 90%;
 }
-
 .videowrap:hover .videodescr {
   visibility: visible;
   opacity: 1;
@@ -385,9 +390,11 @@ form textarea {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1rem;
 }
-
 form textarea {
   width: 80%;
+  resize: vertical;
+  min-height: 250px;
+  max-height: 400px;
 }
 
 .contactosec1 {
@@ -404,7 +411,6 @@ form textarea {
   margin: 0px 60px;
   cursor: pointer;
 }
-
 .contactobut:hover {
   background-color: #c89e52;
 }
@@ -422,7 +428,6 @@ form textarea {
   height: 0;
   overflow: hidden;
 }
-
 .maps iframe, .insta iframe {
   position: absolute;
   top: 0;
@@ -476,7 +481,7 @@ form textarea {
     height: 77vh;
     justify-content: space-around;
     align-items: center;
-    z-index: 3;
+    z-index: 5;
     padding: 18px;
   }
   .menuhamburguesa li {
@@ -494,8 +499,11 @@ form textarea {
     display: flex;
     flex-direction: column;
     left: 0;
+    -webkit-animation-duration: 1s;
     animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
+    -webkit-animation-name: bounceInRight;
     animation-name: bounceInRight;
   }
   .listamenuesc {
@@ -558,6 +566,14 @@ form textarea {
     width: 95%;
     height: 95%;
   }
+  /*Scrollbar en medium*/
+  ::-webkit-scrollbar-track {
+    background: #391e4c;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 5px;
+  }
 }
 /* Media Queries para pantallas Small, cambio tamaño fuente */
 @media screen and (max-width: 576px) {
@@ -602,25 +618,31 @@ form textarea {
 /*Animación para menú*/
 @keyframes bounceInRight {
   from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   from {
     opacity: 0;
+    -webkit-transform: translate3d(3000px, 0, 0);
     transform: translate3d(3000px, 0, 0);
   }
   60% {
     opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
     transform: translate3d(-25px, 0, 0);
   }
   75% {
+    -webkit-transform: translate3d(10px, 0, 0);
     transform: translate3d(10px, 0, 0);
   }
   90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
     transform: translate3d(-5px, 0, 0);
   }
   to {
+    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-} 
+}
 
 /*# sourceMappingURL=style.css.map */

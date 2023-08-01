@@ -26,6 +26,9 @@ form {
   }
   textarea {
     width: 80%;
+    resize: vertical;
+    min-height: 250px;
+    max-height:400px;
   }
 }
 

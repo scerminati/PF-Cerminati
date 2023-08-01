@@ -5,6 +5,7 @@ body {
 
 main {
   overflow-x: hidden;
+  padding: 10px 0 10px 0;
   li {
     font-size: $sizep;
   }
@@ -19,6 +20,7 @@ header {
   display: block;
   z-index: 3;
   gap: 10px;
+
   nav {
     height: 100%;
     ul {
@@ -160,4 +162,23 @@ footer p {
   margin: 0 2px;
   @include flexmix(row);
   align-items: center;
+}
+
+/*Línea blurred*/
+
+.blurred {
+  height: 15px;
+  width: 100%;
+  position: fixed;
+  z-index: 4;
+  background: rgb(57, 30, 76);
+}
+
+.blurredtop {
+  top: 18vh;
+  @include gradiente(180deg);
+}
+.blurredbottom {
+  bottom: 5vh;
+  @include gradiente(0deg);
 }

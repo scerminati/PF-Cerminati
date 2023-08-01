@@ -1,14 +1,19 @@
 /* Scrollbar para main */
 ::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #391e4c;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: white;
-    border-radius: 5px;
-  }
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #614b70;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    0deg,
+    rgba(97, 75, 112, 1) 0%,
+    rgba(255, 255, 255, 1) 10%,
+    rgba(255, 255, 255, 1) 90%,
+    rgba(97, 75, 112, 1) 100%
+  );
+}

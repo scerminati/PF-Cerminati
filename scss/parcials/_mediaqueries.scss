@@ -38,7 +38,7 @@
     height: 77vh;
     justify-content: space-around;
     align-items: center;
-    z-index: 3;
+    z-index: 5;
     padding: 18px;
 
     li {
@@ -135,6 +135,15 @@
       width: 95%;
       height: 95%;
     }
+  }
+  /*Scrollbar en medium*/
+  ::-webkit-scrollbar-track {
+    background: #391e4c;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 5px;
   }
 }
 
